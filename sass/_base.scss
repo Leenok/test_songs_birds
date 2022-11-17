@@ -1,0 +1,51 @@
+.game-block {
+    width: 85%;
+    margin: auto;
+}
+
+.colum-two {
+    display: flex;
+    gap: 15px;
+}
+
+audio,
+h2,
+h3 {
+    margin: 7px;
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.names-levels {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background: rgb(18, 171, 84);
+
+    &__item {
+        list-style-type: none;
+        padding: 12px;
+        color: white;
+        text-align: center;
+
+        &:hover {
+            background: rgb(10, 81, 10);
+        }
+    }
+
+}
+
+.next-level {
+    text-align: center;
+    background: rgb(18, 171, 84);
+    color: white;
+    padding: 12px;
+    margin-top: 10px;
+
+    &:hover {
+        background: rgb(10, 81, 10);
+    }
+}

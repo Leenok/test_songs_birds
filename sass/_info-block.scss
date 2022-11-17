@@ -1,0 +1,21 @@
+.info-block {
+    display: flex;
+    flex-direction: column;
+    background: rgb(46, 42, 42);
+    padding: 10px;
+    color: rgb(198, 196, 196);
+
+    &__header {
+        display: flex;
+    }
+
+    &__description {
+        padding: 7px 0;
+    }
+}
+
+.info-block__info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}

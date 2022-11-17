@@ -1,5 +1,5 @@
 const birdsData = [
-  [       
+  [
     {
       id: 1,
       name: 'Ворон',
@@ -265,7 +265,7 @@ const birdsData = [
       description: 'Особенностью голубоногой олуши является не только насыщенный ярко-синий цвет лапок, но еще и тот факт, что они очень теплые. В то время как другие виды птиц греют кладки своим телом, голубоногая олуша делает это с помощью лапок',
       image: 'https://live.staticflickr.com/800/40645471394_4422e69ed8.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/YHKQPPJDVP/XC411507-171217_1491%20BF%20Booby%205ft%20IDLP%201230%20mp3%20amp.mp3'
-    },    
+    },
     {
       id: 3,
       name: 'Буревестник',

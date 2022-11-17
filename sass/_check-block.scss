@@ -1,0 +1,16 @@
+.check-block {
+    display: flex;
+    flex-direction: column;
+    min-width: 40%;
+    color: white;
+
+    &__item {
+        padding: 10px 8px;
+        background: rgb(46, 42, 42);
+        border: 1px solid rgb(160, 160, 160);
+
+        &:hover {
+            background: rgb(96, 87, 87);
+        }
+    }
+}

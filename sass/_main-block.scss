@@ -1,0 +1,18 @@
+.main-block {
+    display: flex;
+    background: rgb(46, 42, 42);
+    color: white;
+    margin: 15px 0;
+}
+
+.main-block__img {
+    border-radius: 15px;
+    height: 100px;
+    padding: 10px;
+}
+
+
+
+.main-block__info {
+    margin-left: 15px;
+}
