@@ -1,7 +1,7 @@
 .check-block {
     display: flex;
     flex-direction: column;
-    min-width: 40%;
+    min-width: 48%;
     color: white;
 
     &__item {
@@ -9,8 +9,27 @@
         background: rgb(46, 42, 42);
         border: 1px solid rgb(160, 160, 160);
 
+        &>img {
+            height: 5px;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
         &:hover {
             background: rgb(96, 87, 87);
         }
     }
+}
+
+.check-item {
+    background: rgb(11, 138, 134);
+}
+
+.check-tr {
+    list-style-image: url("../info/img/green.png");
+}
+
+.check-fl {
+
+    list-style-image: url("../info/img/red.png");
 }

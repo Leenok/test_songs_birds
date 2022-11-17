@@ -1,6 +1,7 @@
 .info-block {
     display: flex;
     flex-direction: column;
+    min-width: 48.5%;
     background: rgb(46, 42, 42);
     padding: 10px;
     color: rgb(198, 196, 196);
@@ -14,8 +15,29 @@
     }
 }
 
+.hide {
+    // display: none;
+    visibility: hidden;
+}
+
+.info-block__ban {
+    min-width: 48.5%;
+    background: rgb(46, 42, 42);
+    padding: 10px;
+    color: rgb(198, 196, 196);
+}
+
 .info-block__info {
     display: flex;
     flex-direction: column;
     padding-left: 15px;
+}
+
+.info-block__img {
+    width: 165px;
+    background-image: url('../info/img/birdOne.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    // height: 165px;
 }
