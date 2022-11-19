@@ -1,8 +1,13 @@
 import birdsData from './info/birds.js';
 
+let levels_name = document.querySelectorAll('.names-levels__item');
+let score = document.querySelector('.score-number');
 //main-block
 let level = 0;
-let score = 0;
+let levelscore = 0;
+let attempt = 5;
+let totallscore = 0;
+
 let main_img = document.querySelector('.main-block__img');
 let main_name = document.querySelector('.main-block__name');
 let main_song = document.querySelector('.main-block__song');
@@ -20,16 +25,24 @@ let info_description = document.querySelector('.info-block__description');
 const list = document.querySelector('.check-block');
 let block_none = document.querySelector('.none');
 let block_ban = document.querySelector('.info-block__ban');
+//next button
+let butt = document.querySelector('.next-level');
 
-
-// настройка игры
-//раноманая птица из уровня
-// подсчет очков
-// отметка правильнвй или неправл ответ
-
-//check birds;
 //random birds
 let randomevelBirds = randomBird();
+// console.log(randomevelBirds);
+let birdslevel = birdsData[level][randomevelBirds[level]];
+//add listener to list-bird
+let nameCheckBird = '';
+// let checkitems = document.querySelectorAll('.check-block__item');
+
+function levelName() {
+    if (level > 0) {
+        levels_name[level - 1].classList.remove('check-level');
+    }
+    levels_name[level].classList.add('check-level');
+
+}
 function randomBird() {
     let rand = [];
     for (let i = 0; i < 6; i++) {
@@ -38,18 +51,17 @@ function randomBird() {
     }
     return rand;
 }
-
-console.log(randomevelBirds);
-
-//main block -bird
-main_song.src = birdsData[level][randomevelBirds[level]].audio;
-
-
-// console.log(birdsData[level][randomevelBirds[level]].audio);
-
-list.innerHTML = createChecklist(level);
-list.append();
-
+function BirdX() {
+    birdslevel = birdsData[level][randomevelBirds[level]];
+    main_img.src = "./info/img/x-bird.png";
+    main_name.innerHTML = "******";
+    main_song.src = birdslevel.audio;
+    nameCheckBird = birdslevel.name;
+}
+function BirdY() {
+    main_img.src = birdslevel.image;
+    main_name.innerHTML = birdslevel.name;
+}
 function createChecklist(x) {
     let newlist = '';
     for (let i in birdsData[x]) {
@@ -57,61 +69,100 @@ function createChecklist(x) {
     }
     return newlist;
 }
-
-list.addEventListener('click', () => {
-
-})
-//add listener to list-bird
-let nameCheckBird = '';
-let checkitems = document.querySelectorAll('.check-block__item');
-
-
-
-for (let i in checkitems) {
-
-    let item = checkitems[i];
-    item.addEventListener('click', () => {
-        if (block_none) {
-            block_none.classList = "info-block";
-            block_ban.classList = "none";
-        }
-        // console.log(item.children[0]);
-        addColorPoint(item);
-        // console.log(list.children[i].textContent);
-        nameCheckBird = item.textContent;
-        addDataBird(nameCheckBird);
-    });
-
+function zagluskaInfo() {
+    let n = document.querySelector('.info-block');
+    let y = document.querySelector('.none');
+    y.classList = "info-block";
+    n.classList = "none";
+    list.removeEventListener('click', zagluskaInfo, false);
 }
-
-function addColorPoint(elem) {
-    let birdslevel = birdsData[level][randomevelBirds[level]];
-    // console.log(birdslevel);
-    // console.log(elem.textContent);
-    // console.log(elem === birdslevel);
-    if (elem.textContent === birdslevel.name) {
-        elem.children[0].src = "../info/img/green.png";
-        main_img.src = birdslevel.image;
-        main_name.innerHTML = birdslevel.name;
-    } else {
-        elem.children[0].src = "../info/img/red.png";
-    }
-
-    // return elem.classList.add('check-tr'); //check-item
-}
-
-
 //подгр данных птицы выбранной
 function addDataBird(bird) {
-    let z = birdsData[level].filter(item => item.name == bird);
+    let z = birdsData[level].filter(item => item.name == bird.path[0].textContent);
+    // console.log(z[0]);
     info_name.innerHTML = z[0].name;
     info_species.innerHTML = z[0].species;
     info_img.style.backgroundImage = `url(${z[0].image})`;
     info_song.src = z[0].audio;
     info_description.innerHTML = z[0].description;
-    info_block.append();
+    // info_block.append();
     return z;
 }
+function soundClick(href) {
+    var audio = new Audio(); // Создаём новый элемент Audio
+    audio.src = href; // Указываем путь к звуку "клика"
+    audio.autoplay = true; // Автоматически запускаем
+}
+function addEventToList() {
+    document.querySelectorAll('.check-block__item').forEach((element) => {
+        element.addEventListener('click', addColorPoint, element);
+        element.addEventListener('click', addDataBird, element);
+    })
+}
+function removeEventToList() {
+    document.querySelectorAll('.check-block__item').forEach((element) => {
+        element.removeEventListener('click', addColorPoint, element);
+    })
+}
+function updateScore() {
+    levelscore = attempt;
+    totallscore += levelscore;
+    score.innerHTML = "Score: " + totallscore;
 
-// let n = addDataBird('Ворон');
-// console.log(n);
+}
+function addColorPoint(elem) {
+    if (elem.path[0].textContent === birdslevel.name) {
+        elem.path[0].children[0].src = "../info/img/green.png";
+        soundClick("./info/song/win2.mp3");
+        removeEventToList();
+        BirdY();
+        updateScore();
+
+        butt.style.backgroundColor = "rgb(18, 171, 84)";
+        butt.addEventListener('click', nextLevel, false);
+    } else {
+        attempt--;
+        if (attempt < 0) {
+            attempt = 0;
+        }
+        elem.path[0].children[0].src = "../info/img/red.png";
+        soundClick("./info/song/beep-3.mp3");
+    }
+}
+function defaulttPageLevel() {
+    //bird x write 
+    BirdX();
+    levelName();
+    //update list
+    list.innerHTML = createChecklist(level);
+    list.append();
+    list.addEventListener('click', zagluskaInfo, false);
+    addEventToList();
+
+}
+
+defaulttPageLevel();
+// console.log(birdslevel.image);
+
+function nextLevel() {
+    levelscore = 0;
+    level += 1;
+    attempt = 5;
+
+    zagluskaInfo();
+    defaulttPageLevel();
+
+    butt.style.backgroundColor = "rgb(46, 42, 42)";
+    butt.removeEventListener('click', nextLevel, false);
+    console.log(level);
+}
+
+
+//block itog game
+//new game, update let and scrin
+
+
+
+
+
+

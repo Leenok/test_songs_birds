@@ -39,17 +39,13 @@ h3 {
   display: none;
 }
 
-.check-tr {
-  list-style-image: url("../info/img/trafficlight.ico");
-}
-
-.check-fl {
-  list-style-image: url("../info/img/red.png");
+.check-level {
+  background: rgb(11, 138, 134);
 }
 
 .next-level {
   text-align: center;
-  background: rgb(18, 171, 84);
+  background: rgb(46, 42, 42);
   color: white;
   padding: 12px;
   margin-top: 10px;
@@ -97,10 +93,6 @@ h3 {
 }
 .check-block__item:hover {
   background: rgb(96, 87, 87);
-}
-
-.check-item {
-  background: rgb(11, 138, 134);
 }
 
 .info-block {
