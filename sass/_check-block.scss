@@ -1,13 +1,17 @@
 .check-block {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     min-width: 48%;
-    color: white;
+    color: $color-text;
+    background: $color-prime;
+    border-radius: 7px;
 
     &__item {
-        padding: 10px 8px;
-        background: rgb(46, 42, 42);
-        border: 1px solid rgb(160, 160, 160);
+        padding: 13px 8px;
+        border: 0.3px solid $color-text;
+
+        border-radius: 5px;
 
         &>img {
             height: 5px;
@@ -16,7 +20,7 @@
         }
 
         &:hover {
-            background: rgb(96, 87, 87);
+            background: $color-second;
         }
     }
 }

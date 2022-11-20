@@ -9,13 +9,17 @@
 
     <link rel="icon" type="image/x-icon" href="./info/img/bird-icon.ico">
     <link rel="stylesheet" href="./sass/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="game-block">
         <div class="score">
-            <h1>Songbird</h1>
-            <span class="score-number">Score:0</span>
+            <h1 class="name-game">Song<span class="green">bird</span></h1>
+            <div class="score-number">Score:0</div>
         </div>
         <div class="names-levels">
             <div class="names-levels__item">Разминка</div>
@@ -25,49 +29,56 @@
             <div class="names-levels__item">Хищные птицы</div>
             <div class="names-levels__item">Морские птицы</div>
         </div>
+        <div class="game-panel">
+            <div class="main-block">
+                <img class="main-block__img" src="./info/img/x-bird.png" alt="bird">
 
-        <div class="main-block">
-            <img class="main-block__img" src="./info/img/x-bird.png" alt="bird">
-            <div class="main-block__info">
-                <h2 class="main-block__name">******</h2>
-                <audio class="main-block__song" src="" controls></audio>
-            </div>
-        </div>
-
-        <div class="colum-two">
-
-            <div class="check-block">
+                <div class="main-block__info">
+                    <h2 class="main-block__name">******</h2>
+                    <hr class="hr">
+                    <audio class="main-block__song" src="" controls></audio>
+                </div>
             </div>
 
-            <div class="none">
+            <div class="colum-two">
+                <div class="check-block">
+                </div>
+                <div class="none">
+                    <div class="info-block__header">
+                        <div class="info-block__img">
+                        </div>
+                        <div class="info-block__info">
+                            <h3 class="info__name"></h3>
+                            <hr class="hr">
+                            <div class="info__species"></div>
+                            <hr class="hr">
+                            <audio src="./info/song/dj-bairam-prosto-korotkaya-muzyka.mp3" class="info__song"
+                                controls></audio>
+                        </div>
+                    </div>
 
-                <div class="info-block__header">
-                    <div class="info-block__img">
+                    <div class="info-block__description">
                     </div>
-                    <div class="info-block__info">
-                        <h3 class="info__name">Grif</h3>
-                        <span class="info__species">griffy</span>
-                        <audio src="./info/song/dj-bairam-prosto-korotkaya-muzyka.mp3" class="info__song"
-                            controls></audio>
-                    </div>
+
                 </div>
 
-                <div class="info-block__description">
+                <div class="info-block">
+                    Послушайте плеер.<br>
+                    Выберите птицу из списка.
                 </div>
 
             </div>
 
-            <div class="info-block">
-                Послушайте плеер.<br>
-                Выберите птицу из списка.
-            </div>
-
-
-
-
+            <div class="next-level"> Next Level</div>
         </div>
-
-        <div class="next-level"> Next Level</div>
+        <div class="itog-block">
+            <div class="itog-content">
+                <div class="pozdr">Поздравляем!</div>
+                <div class="res"></div>
+                <div class="try-agen">Попробовать еще раз!</div>
+                <img src="./info/img/win.d41869f7.jpg" alt="win" class="win">
+            </div>
+        </div>
 
     </div>
 

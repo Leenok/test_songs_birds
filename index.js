@@ -23,14 +23,12 @@ let info_description = document.querySelector('.info-block__description');
 
 //check-block
 const list = document.querySelector('.check-block');
-let block_none = document.querySelector('.none');
-let block_ban = document.querySelector('.info-block__ban');
 //next button
 let butt = document.querySelector('.next-level');
-
+let result = document.querySelector('.res');
 //random birds
 let randomevelBirds = randomBird();
-// console.log(randomevelBirds);
+console.log(randomevelBirds);
 let birdslevel = birdsData[level][randomevelBirds[level]];
 //add listener to list-bird
 let nameCheckBird = '';
@@ -39,6 +37,9 @@ let nameCheckBird = '';
 function levelName() {
     if (level > 0) {
         levels_name[level - 1].classList.remove('check-level');
+    }
+    if (level == 0) {
+        levels_name[5].classList.remove('check-level');
     }
     levels_name[level].classList.add('check-level');
 
@@ -114,11 +115,12 @@ function addColorPoint(elem) {
     if (elem.path[0].textContent === birdslevel.name) {
         elem.path[0].children[0].src = "../info/img/green.png";
         soundClick("./info/song/win2.mp3");
+        main_song.pause();
         removeEventToList();
         BirdY();
         updateScore();
 
-        butt.style.backgroundColor = "rgb(18, 171, 84)";
+        butt.style.backgroundColor = "#00bc8c";
         butt.addEventListener('click', nextLevel, false);
     } else {
         attempt--;
@@ -141,28 +143,51 @@ function defaulttPageLevel() {
 
 }
 
+
 defaulttPageLevel();
-// console.log(birdslevel.image);
 
 function nextLevel() {
     levelscore = 0;
     level += 1;
     attempt = 5;
+    if (level == 6) {
+        itog();
+    } else {
+        zagluskaInfo();
+        defaulttPageLevel();
 
-    zagluskaInfo();
-    defaulttPageLevel();
-
-    butt.style.backgroundColor = "rgb(46, 42, 42)";
-    butt.removeEventListener('click', nextLevel, false);
+        butt.style.backgroundColor = "#303030";
+        butt.removeEventListener('click', nextLevel, false);
+    }
     console.log(level);
 }
 
-
 //block itog game
-//new game, update let and scrin
+function itog() {
+    result.innerHTML = `Вы прошли викторину и набрали ${totallscore} из 30 возможных баллов`;
+    document.querySelector('.game-panel').classList.add('none');
+    document.querySelector('.itog-block').style.display = "block";
+    document.querySelector('.win').style.display = "none";
+    if (totallscore == 30) {
+        document.querySelector('.try-agen').classList.add('none');
+        document.querySelector('.win').style.display = "block";
+    }
+}
 
+document.querySelector('.try-agen').addEventListener('.click', newGame, false);
 
+function newGame() {
+    level = 0;
+    levelscore = 0;
+    attempt = 5;
+    totallscore = 0;
+    randomevelBirds = randomBird();
+    document.querySelector('.game-panel').classList.remove('none');
 
+    document.querySelector('.itog-block').style.display = "none";
+    score.innerHTML = "Score: 0";
+    defaulttPageLevel();
 
-
-
+    console.log(birdslevel.image);
+}
+//

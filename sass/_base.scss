@@ -1,3 +1,21 @@
+$color-prime : #303030;
+$color-second: #999;
+$color-background: #222;
+$color-href: #00bc8c;
+$color-hover: #1e7d60;
+$color-text: white;
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background: $color-background;
+    font-family: 'Lato', sans-serif;
+    color: $color-text;
+    font-size: 1.6rem;
+}
+
 .game-block {
     width: 85%;
     margin: auto;
@@ -20,20 +38,28 @@ h3 {
     align-items: center;
 }
 
+.name-game {
+    font-family: 'Great Vibes', cursive, sans-serif;
+}
+
+.green {
+    color: $color-href;
+}
+
 .names-levels {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    background: rgb(18, 171, 84);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // grid-template-columns: repeat(6, 1fr);
+    // justify-content: center;
+    border-radius: 5px;
+    background: $color-href;
 
     &__item {
+        flex: auto;
         list-style-type: none;
         padding: 12px;
-        color: white;
         text-align: center;
-
-        &:hover {
-            background: rgb(10, 81, 10);
-        }
     }
 
 }
@@ -43,18 +69,19 @@ h3 {
 }
 
 .check-level {
-    background: rgb(11, 138, 134);
+    background: $color-hover;
 }
 
 
 .next-level {
     text-align: center;
-    background: rgb(46, 42, 42);
-    color: white;
+    background: $color-prime;
+    border-radius: 7px;
+    color: $color-text;
     padding: 12px;
     margin-top: 10px;
 
     &:hover {
-        background: rgb(10, 81, 10);
+        background: $color-href;
     }
 }

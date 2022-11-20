@@ -1,30 +1,28 @@
 .info-block {
     display: flex;
     flex-direction: column;
-    min-width: 48.5%;
-    background: rgb(46, 42, 42);
-    padding: 10px;
-    color: rgb(198, 196, 196);
+    flex-grow: 1;
+    border-radius: 7px;
+    min-width: 47%;
+    background: $color-prime;
+    color: $color-text;
+    padding: 15px;
 
     &__header {
         display: flex;
     }
 
     &__description {
-        padding: 7px 0;
+        margin-top: 15px;
+        // padding: 7px 0;
     }
-}
-
-.hide {
-    // display: none;
-    visibility: hidden;
 }
 
 .info-block__ban {
     min-width: 48.5%;
-    background: rgb(46, 42, 42);
+    background: $color-prime;
     padding: 10px;
-    color: rgb(198, 196, 196);
+    color: $color-text;
 }
 
 .info-block__info {
@@ -34,10 +32,11 @@
 }
 
 .info-block__img {
-    width: 165px;
+    height: 155px;
+    width: 200px;
+    border-radius: 15px;
     background-image: url('../info/img/birdOne.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    // height: 165px;
 }
