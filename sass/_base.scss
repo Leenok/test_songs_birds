@@ -85,10 +85,6 @@ h3 {
     color: $color-text;
     padding: 12px;
     margin-top: 10px;
-
-    &:hover {
-        background: $color-href;
-    }
 }
 
 footer {
@@ -100,4 +96,8 @@ footer {
 
 .logorss {
     height: 40px;
+}
+
+.win {
+    max-width: 60%;
 }

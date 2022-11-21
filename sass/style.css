@@ -74,9 +74,6 @@ h3 {
   padding: 12px;
   margin-top: 10px;
 }
-.next-level:hover {
-  background: #00bc8c;
-}
 
 footer {
   margin-top: 150px;
@@ -86,6 +83,10 @@ footer {
 
 .logorss {
   height: 40px;
+}
+
+.win {
+  max-width: 60%;
 }
 
 .main-block {
