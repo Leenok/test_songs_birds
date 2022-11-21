@@ -33,6 +33,11 @@ h3 {
 
 .name-game {
   font-family: "Great Vibes", cursive, sans-serif;
+  font-size: 4rem;
+}
+
+.score-number {
+  font-size: 2rem;
 }
 
 .green {
@@ -71,6 +76,16 @@ h3 {
 }
 .next-level:hover {
   background: #00bc8c;
+}
+
+footer {
+  margin-top: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logorss {
+  height: 40px;
 }
 
 .main-block {
@@ -192,11 +207,17 @@ h3 {
   margin: 20px 0;
 }
 
-.try-agen {
+.try-agin {
   background: #00bc8c;
   padding: 10px;
   padding: 15px;
   border-radius: 7px;
+}
+
+.win {
+  display: none;
+  padding: 15px;
+  margin: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

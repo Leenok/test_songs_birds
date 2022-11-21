@@ -40,6 +40,11 @@ h3 {
 
 .name-game {
     font-family: 'Great Vibes', cursive, sans-serif;
+    font-size: 4rem;
+}
+
+.score-number {
+    font-size: 2rem;
 }
 
 .green {
@@ -84,4 +89,15 @@ h3 {
     &:hover {
         background: $color-href;
     }
+}
+
+footer {
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.logorss {
+    height: 40px;
 }

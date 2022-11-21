@@ -143,8 +143,37 @@ function defaulttPageLevel() {
 
 }
 
-
 defaulttPageLevel();
+
+function newGame() {
+    console.log("hi agen!!!!");
+    level = 0;
+    levelscore = 0;
+    attempt = 5;
+    totallscore = 0;
+    randomevelBirds = randomBird();
+    document.querySelector('.game-panel').classList.remove('none');
+
+    document.querySelector('.itog-block').style.display = "none";
+    score.innerHTML = "Score: 0";
+    BirdX();
+    levelName();
+    //update list
+    list.innerHTML = createChecklist(level);
+    list.append();
+    //
+    let n = document.querySelector('.info-block');
+    let y = document.querySelector('.none');
+    y.classList = "info-block";
+    n.classList = "none";
+    list.addEventListener('click', zagluskaInfo, false);
+    addEventToList();
+
+    // defaulttPageLevel();
+
+    console.log(birdslevel.image);
+    console.log(randomevelBirds);
+}
 
 function nextLevel() {
     levelscore = 0;
@@ -167,27 +196,15 @@ function itog() {
     result.innerHTML = `Вы прошли викторину и набрали ${totallscore} из 30 возможных баллов`;
     document.querySelector('.game-panel').classList.add('none');
     document.querySelector('.itog-block').style.display = "block";
+    document.querySelector('.try-agin').addEventListener('click', newGame, false);
     document.querySelector('.win').style.display = "none";
     if (totallscore == 30) {
-        document.querySelector('.try-agen').classList.add('none');
+        document.querySelector('.try-agin').classList.add('none');
         document.querySelector('.win').style.display = "block";
     }
 }
 
-document.querySelector('.try-agen').addEventListener('.click', newGame, false);
 
-function newGame() {
-    level = 0;
-    levelscore = 0;
-    attempt = 5;
-    totallscore = 0;
-    randomevelBirds = randomBird();
-    document.querySelector('.game-panel').classList.remove('none');
 
-    document.querySelector('.itog-block').style.display = "none";
-    score.innerHTML = "Score: 0";
-    defaulttPageLevel();
 
-    console.log(birdslevel.image);
-}
 //
